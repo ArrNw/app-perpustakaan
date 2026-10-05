@@ -22,6 +22,14 @@
         label { display: block; margin-top: 12px; font-weight: bold; }
         input, select, textarea { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; }
         .error { color: #b91c1c; font-size: 14px; margin-top: 4px; }
+        /* Badge Status & Tombol Peminjaman */
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .badge-dipinjam { background-color: #fef3c7; color: #92400e; }
+        .badge-dikembalikan { background-color: #d1fae5; color: #065f46; }
+        .badge-terlambat { background-color: #fee2e2; color: #991b1b; }
+        .btn-sm { padding: 4px 8px; font-size: 12px; }
+        .btn-success { background-color: #10b981; color: white; border: none; border-radius: 4px; cursor: pointer; }
+
     </style>
 </head>
 <body>

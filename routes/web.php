@@ -15,7 +15,9 @@ Route::resource('books', BookController::class);
 Route::resource('categories', CategoryController::class)->except(['show']);
 Route::resource('members', MemberController::class);
 Route::resource('loans', LoanController::class);
-Route::put('/loans/{id}/kembalikan', [LoanController::class, 'kembalikan'])
+
+// Rute aksi tombol kembalikan (Tugas Mandiri)
+Route::patch('/loans/{id}/kembalikan', [LoanController::class, 'kembalikan'])
     ->name('loans.kembalikan');
 
 // Tugas Pertemuan 2: Route Group dengan prefix /admin
