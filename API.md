@@ -64,3 +64,108 @@ Header: `Accept: application/json`
     }
 }
 ```
+
+## 2. POST `/api/books` (Sukses)
+
+- **Status:** `201 Created`
+- **Body:**
+
+```json
+{
+    "judul": "Buku Panduan REST API",
+    "penulis": "Ardhi",
+    "penerbit": "PENS Press",
+    "tahun_terbit": 2026,
+    "isbn": "978-602-0999",
+    "stok": 10,
+    "category_id": 2
+}
+```
+
+- **Response:**
+
+```json
+{
+    "data": {
+        "id": 3,
+        "judul": "Buku Panduan REST API",
+        "penulis": "Ardhi",
+        "penerbit": "PENS Press",
+        "tahun_terbit": "2026",
+        "isbn": "978-602-0999",
+        "stok": 10,
+        "sampul": null,
+        "category": {
+            "id": 2,
+            "nama_kategori": "Framework"
+        }
+    }
+}
+```
+
+## 3. POST `/api/books` (Gagal Validasi)
+
+- **Status:** `422 Unprocessable Entity`
+- **Body: {}**
+
+- **Response:**
+
+```json
+{
+    "message": "Judul buku wajib diisi. (and 5 more errors)",
+    "errors": {
+        "judul": ["Judul buku wajib diisi."],
+        "penulis": ["Nama penulis wajib diisi."],
+        "penerbit": ["Nama penerbit wajib diisi."],
+        "tahun_terbit": ["Tahun terbit wajib diisi."],
+        "stok": ["Stok wajib diisi."],
+        "category_id": ["Kategori wajib dipilih."]
+    }
+}
+```
+
+## 4. PUT `/api/loans/1/kembalikan`
+
+- **Status:** `200 OK`
+
+- **Response:**
+
+```json
+{
+    "data": {
+        "id": 1,
+        "member": {
+            "id": 1,
+            "nama": "ardhinur wahid"
+        },
+        "petugas": {
+            "id": 1,
+            "name": "Petugas Perpustakaan"
+        },
+        "tanggal_pinjam": "2026-10-05",
+        "tanggal_kembali": "2026-10-12",
+        "tanggal_dikembalikan": "2026-10-21",
+        "status": "dikembalikan",
+        "books": [
+            {
+                "id": 1,
+                "judul": "Belajar Laravel"
+            }
+        ]
+    }
+}
+```
+
+## 5. GET `/api/stats`
+
+- **Status:** `200 OK`
+
+- **Response:**
+
+```json
+{
+    "total_buku": 3,
+    "total_anggota": 3,
+    "peminjaman_aktif": 0
+}
+```
